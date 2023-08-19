@@ -1,0 +1,29 @@
+<p>login</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Email" formControlName="email"/>
+      <mat-error *ngIf="loginForm.controls.email.invalid">{{getErrorMessage("email")}}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" formControlName="password" type="password"/>
+    
+      <mat-error *ngIf="loginForm.controls.password.invalid">{{getErrorMessage("password")}}</mat-error>
+    </mat-form-field>
+    
+  </div>
+  <div>
+    <button 
+      aria-label="Show an example snack-bar" 
+      mat-raised-button 
+      [disabled]="loginForm.invalid">Đăng Nhập</button>
+  </div>
+</form>
+
+
+
