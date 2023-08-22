@@ -16,10 +16,26 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { CategoryAdminComponent } from './pages/category-admin/category-admin.component';
+import { PostAdminComponent } from './pages/post-admin/post-admin.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthInterceptor } from './service/interceptor/Interceptor';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { DialogEditUserComponent } from './pages/user/dialog-edit-user/dialog-edit-user.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogDeleteUserComponent } from './pages/user/dialog-delete-user/dialog-delete-user.component';
+import { DialogCreateUserComponent } from './pages/user/dialog-create-user/dialog-create-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +45,15 @@ import {MatSelectModule} from '@angular/material/select';
     UserComponent,
     AdminComponent,
     LoginComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    HeaderComponent,
+    FooterComponent,
+    CategoryAdminComponent,
+    PostAdminComponent,
+    DashboardComponent,
+    DialogEditUserComponent,
+    DialogDeleteUserComponent,
+    DialogCreateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +68,22 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

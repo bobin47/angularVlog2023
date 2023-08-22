@@ -1,0 +1,40 @@
+<div class="container">
+  <form class="formLogin" [formGroup]="upDateUserForm" (ngSubmit)="onSubmit()">
+    <p class='title'>Update User</p>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>id</mat-label>
+        <input matInput placeholder="Fist Name" formControlName="id"/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Fist Name</mat-label>
+        <input  matInput placeholder="Fist Name" formControlName="first_name"/>
+        <mat-error *ngIf="upDateUserForm.controls.first_name.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input matInput placeholder="Last name" formControlName="last_name"/>
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <input matInput placeholder="Status"  formControlName="status"/>
+      </mat-form-field>
+      
+    </div>
+    <div>
+      <button 
+        aria-label="Show an example snack-bar" 
+        mat-raised-button
+        color="primary"
+        >Update</button>
+    </div>
+  </form>
+</div>

@@ -6,6 +6,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PostAdminComponent } from './pages/post-admin/post-admin.component';
+import { CategoryAdminComponent } from './pages/category-admin/category-admin.component';
 
 const routes: Routes = [
   {
@@ -14,19 +19,34 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate:[AdminGuard],
     children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
       {
         path: 'user',
         component: UserComponent
+      },
+      {
+        path: 'post',
+        component: PostAdminComponent
+      },
+      {
+        path: 'category',
+        component: CategoryAdminComponent
       }
     ]
   },

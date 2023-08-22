@@ -1,1 +1,32 @@
-<p>admin works!</p>
+<app-header  (buttonClick)="onButtonClick(drawer)"></app-header>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+    <mat-list>
+      <mat-list-item>
+        <a [routerLink]="['dashboard']" [routerLinkActive]="'active'" class="centerIcon ">
+        <mat-icon class="mr">dashboard</mat-icon> Dashboard
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a  [routerLink]="['user']" [routerLinkActive]="'active'" class="centerIcon ">
+          <mat-icon class="mr"> supervised_user_circle</mat-icon>   User
+        </a>
+      </mat-list-item>
+      <mat-list-item >
+        <a  [routerLink]="['post']" [routerLinkActive]="'active'" class="centerIcon ">
+          <mat-icon class="mr"> library_books</mat-icon>Post
+        </a>
+      </mat-list-item>
+      <mat-list-item >
+        <a  [routerLink]="['category']" [routerLinkActive]="'active'" class="centerIcon ">
+          <mat-icon>subject</mat-icon>Category
+        </a>
+      </mat-list-item>
+     </mat-list>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+   <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
+
+  

@@ -5,8 +5,9 @@ import { Router } from '@angular/router';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
+  MatSnackBarVerticalPosition
 } from '@angular/material/snack-bar';
+import { setAccessTokenFormLC, setRefresherTokenFormLC, setUserFormLC } from 'src/app/utils/auth.utils';
 
 @Component({
   selector: 'app-login',
@@ -14,17 +15,21 @@ import {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private authService: AuthService,
-              private _snackBar: MatSnackBar,
-              private router: Router,
-              ) {}
+  constructor(
+    private authService: AuthService,
+    private _snackBar: MatSnackBar,
+    private router: Router
+  ) {}
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   hide = true;
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required,Validators.minLength(6)])
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(4)
+    ])
   });
 
   onSubmit() {
@@ -37,11 +42,16 @@ export class LoginComponent {
 
     this.authService.LoginApi(body).subscribe(
       res => {
-        this._snackBar.open("dang nahp thanh cong","close")
+        const {access_token,refresh_token,user} = res?.res?.data
+        console.log(res.res.data)
+        setAccessTokenFormLC(access_token)
+        setRefresherTokenFormLC(refresh_token)
+        setUserFormLC(user)
+        this._snackBar.open('dang nahp thanh cong', 'close');
         this.router.navigate(['/home']);
       },
       err => {
-        this._snackBar.open("dang nhap that bai","close")
+        this._snackBar.open('dang nhap that bai', 'close');
       }
     );
   }
@@ -67,8 +77,4 @@ export class LoginComponent {
 
     return '';
   }
-
- 
-
-
 }

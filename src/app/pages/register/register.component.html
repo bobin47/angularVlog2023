@@ -1,5 +1,6 @@
-<p>login</p>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<div class="container">
+<form class="formLogin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <p class='title'>register</p>
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
@@ -42,10 +43,11 @@
     <button 
       aria-label="Show an example snack-bar" 
       mat-raised-button 
+      [disabled]="registerForm.invalid"
       >Đăng Ky</button>
   </div>
 </form>
-
+</div>
 
 
 
