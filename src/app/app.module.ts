@@ -36,6 +36,12 @@ import { DialogEditUserComponent } from './pages/user/dialog-edit-user/dialog-ed
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogDeleteUserComponent } from './pages/user/dialog-delete-user/dialog-delete-user.component';
 import { DialogCreateUserComponent } from './pages/user/dialog-create-user/dialog-create-user.component';
+import { EditCategoryDialogComponent } from './pages/category-admin/edit-category-dialog/edit-category-dialog.component';
+import { CreateCategoryDialogComponent } from './pages/category-admin/create-category-dialog/create-category-dialog.component';
+import { DeleteCategoryDialogComponent } from './pages/category-admin/delete-category-dialog/delete-category-dialog.component';
+import { DeletePostDialogComponent } from './pages/post-admin/delete-post-dialog/delete-post-dialog.component';
+import { CreatePostDialogComponent } from './pages/post-admin/create-post-dialog/create-post-dialog.component';
+import { EditPostDialogComponent } from './pages/post-admin/edit-post-dialog/edit-post-dialog.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +59,13 @@ import { DialogCreateUserComponent } from './pages/user/dialog-create-user/dialo
     DashboardComponent,
     DialogEditUserComponent,
     DialogDeleteUserComponent,
-    DialogCreateUserComponent
+    DialogCreateUserComponent,
+    EditCategoryDialogComponent,
+    CreateCategoryDialogComponent,
+    DeleteCategoryDialogComponent,
+    DeletePostDialogComponent,
+    CreatePostDialogComponent,
+    EditPostDialogComponent
   ],
   imports: [
     BrowserModule,

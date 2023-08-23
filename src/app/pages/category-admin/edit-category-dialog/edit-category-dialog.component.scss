@@ -1,0 +1,17 @@
+.container{
+  padding: 25px;
+  .formLogin{
+    .title{
+      font-size: 30px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+    }
+    .mat-mdc-form-field{
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+}
