@@ -9,7 +9,6 @@ import { clearLC } from 'src/app/utils/auth.utils';
 })
 export class HeaderComponent {
   constructor(private router: Router){
-    
   }
   @Output() buttonClick = new EventEmitter<void>();
   

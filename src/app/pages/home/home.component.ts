@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterContentInit, Component, ContentChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 @Component({
   selector: 'app-home',
@@ -8,19 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent {
   constructor() {}
-  expression = 'h1';
-  userName: string = 'chuong';
-  link: string =
-    'https://assets.imgcreator.ai/ui/img-creator-pc/For+Professional/44.webp';
+  
 
-  age: number = 18;
-  clickMe(event: Event) {
-    console.log(event);
-  }
-
-  enterName(event: any) {
-    // this.userName = event.target.value;
-    console.log(event.target.value);
-    this.userName = event.target.value;
-  }
+  
 }

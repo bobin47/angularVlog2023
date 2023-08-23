@@ -23,6 +23,7 @@ export class DialogDeleteUserComponent {
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'start';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  id: number = this.data.element.id;
 
   ngOnInit() {}
 
