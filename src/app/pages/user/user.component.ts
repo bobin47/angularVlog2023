@@ -58,7 +58,8 @@ export class UserComponent implements OnInit, AfterViewInit {
   }
 
   handlePageEvent(event: PageEvent) {
-    console.log(event);
+    console.log(event.pageSize);
+    this.limit = event.pageSize
     this.getUser(this.limit, event.pageIndex + 1);
   }
 

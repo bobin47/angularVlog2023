@@ -1,1 +1,56 @@
-<p>create-post-dialog works!</p>
+<div class="container">
+  <div>
+    <form [formGroup]="formCreatePost">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>title</mat-label>
+          <input matInput placeholder="title" formControlName="title" />
+          <!-- <mat-error *ngIf="formCreatePost.controls.email.invalid">{{
+            getErrorMessage("email")
+          }}</mat-error> -->
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>status</mat-label>
+          <input matInput placeholder="status" formControlName="status" />
+          <!-- <mat-error *ngIf="formCreatePost.controls.email.invalid">{{
+            getErrorMessage("email")
+          }}</mat-error> -->
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Category</mat-label>
+          <mat-select [(ngModel)]="selectedOption" formControlName="category">
+            <mat-option *ngFor="let item of categoryList" [value]="item.id">{{
+              item.name
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <div>
+      <p>Thumbnail</p>
+      <input type="file" (change)="onFileSelected($event)"/>
+      <br/>
+      <img style="width: 400px; height: 200px;margin-top: 10px;" [src]="selectedImage" *ngIf="selectedImage" />
+    </div>
+    <p>Description</p>
+    <ckeditor
+      [editor]="Editor"
+      [(ngModel)]="editorContent"
+      [config]="editorConfig"
+    ></ckeditor>
+  </div>
+  <button
+    class="btnCreate"
+    mat-raised-button
+    color="primary"
+    (click)="onSave()"
+  >
+    Create
+  </button>
+</div>

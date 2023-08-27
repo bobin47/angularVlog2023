@@ -42,6 +42,7 @@ import { DeleteCategoryDialogComponent } from './pages/category-admin/delete-cat
 import { DeletePostDialogComponent } from './pages/post-admin/delete-post-dialog/delete-post-dialog.component';
 import { CreatePostDialogComponent } from './pages/post-admin/create-post-dialog/create-post-dialog.component';
 import { EditPostDialogComponent } from './pages/post-admin/edit-post-dialog/edit-post-dialog.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { EditPostDialogComponent } from './pages/post-admin/edit-post-dialog/edi
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
-    MatDialogModule
+    MatDialogModule,
+    CKEditorModule
   ],
   providers: [
     {

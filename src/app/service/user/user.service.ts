@@ -13,7 +13,6 @@ export class UserService {
     page: number,
     search?: string
   ): Observable<any> {
-    console.log(search);
     let params = new HttpParams()
       .set('limit', limit.toString())
       .set('page', page.toString());
