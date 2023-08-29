@@ -43,6 +43,17 @@ import { DeletePostDialogComponent } from './pages/post-admin/delete-post-dialog
 import { CreatePostDialogComponent } from './pages/post-admin/create-post-dialog/create-post-dialog.component';
 import { EditPostDialogComponent } from './pages/post-admin/edit-post-dialog/edit-post-dialog.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {MatChipsModule} from '@angular/material/chips';
+import { CardComponent } from './components/card/card.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DetailpostComponent } from './pages/detailpost/detailpost.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { DialogEditPostComponent } from './components/card/dialog-edit-post/dialog-edit-post.component';
+import { DialogDeletepostPostComponent } from './components/card/dialog-deletepost-post/dialog-deletepost-post.component';
+import { CreatePostComponent } from './pages/profile/create-post/create-post.component';
+import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
+import { DeleteProfileComponent } from './pages/profile/delete-profile/delete-profile.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +77,15 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     DeleteCategoryDialogComponent,
     DeletePostDialogComponent,
     CreatePostDialogComponent,
-    EditPostDialogComponent
+    EditPostDialogComponent,
+    CardComponent,
+    DetailpostComponent,
+    ProfileComponent,
+    DialogEditPostComponent,
+    DialogDeletepostPostComponent,
+    CreatePostComponent,
+    EditProfileComponent,
+    DeleteProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +108,10 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    CKEditorModule
+    CKEditorModule,
+    MatChipsModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [
     {

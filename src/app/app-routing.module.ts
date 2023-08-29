@@ -12,11 +12,21 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostAdminComponent } from './pages/post-admin/post-admin.component';
 import { CategoryAdminComponent } from './pages/category-admin/category-admin.component';
 import { CreatePostDialogComponent } from './pages/post-admin/create-post-dialog/create-post-dialog.component';
+import { DetailpostComponent } from './pages/detailpost/detailpost.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path:'detail/:id',
+    component:DetailpostComponent
+  },
+  {
+    path:'profile',
+    component:ProfileComponent
   },
   {
     path: 'login',

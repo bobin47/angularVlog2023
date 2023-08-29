@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>First Name</mat-card-title>
+        <mat-card-subtitle style="text-transform: capitalize;"
+          >{{ user.first_name }}
+        </mat-card-subtitle>
+        <mat-card-title>Last Name</mat-card-title>
+        <mat-card-subtitle style="text-transform: capitalize;">
+          {{ user.last_name }}
+        </mat-card-subtitle>
+        <mat-card-title>Email</mat-card-title>
+        <mat-card-subtitle>{{ user.email }} </mat-card-subtitle>
+        <mat-card-title>Roles</mat-card-title>
+        <mat-card-subtitle style="text-transform: capitalize;">
+          {{ user.roles }}
+        </mat-card-subtitle>
+        <img
+          mat-card-xl-image
+          style="border-radius: 50%;"
+          *ngIf="user.avatar; else noAvatar"
+          src="http://localhost:3000/{{ user.avatar }}"
+        />
+        <ng-template #noAvatar>
+          <img
+            mat-card-xl-image
+            style="border-radius: 50%;"
+            src="https://www.kindpng.com/picc/m/22-223863_no-avatar-png-circle-transparent-png.png"
+          />
+        </ng-template>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="accent">Edit Profile</button>
+      <button mat-raised-button color="accent" style="margin: 0 15px;" (click)="createPost()">
+        Create Post
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<div class="post">
+  <h1 style="text-align: center;">Post</h1>
+  <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile
+      *ngFor="let post of postList"
+      (click)="naviagate(post)"
+      style="cursor: pointer;"
+      ><app-card [aPost]="post"></app-card
+    ></mat-grid-tile>
+  </mat-grid-list>
+</div>

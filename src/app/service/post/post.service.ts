@@ -12,7 +12,7 @@ export class PostService {
     limit: number,
     page: number,
     search?: string,
-    category?: number,
+    category?: number
   ): Observable<any> {
     let params = new HttpParams()
       .set('limit', limit.toString())
@@ -35,7 +35,15 @@ export class PostService {
     return this.httpClient.put(`http://localhost:3000/posts/${id}`, formData);
   }
 
-  deletePostApi(id:number):Observable<any>{
-    return this.httpClient.delete(`http://localhost:3000/posts/${id}`)
+  deletePostApi(id: number): Observable<any> {
+    return this.httpClient.delete(`http://localhost:3000/posts/${id}`);
+  }
+
+  detailPost(id: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:3000/posts/${id}`);
+  }
+
+  getPostWithIdUser(email: string): Observable<any> {
+    return this.httpClient.get(`http://localhost:3000/posts/user/${email}`);
   }
 }
