@@ -33,4 +33,8 @@ export class UserService {
   public createUser(body: any): Observable<any> {
     return this.httpClient.post(`${this.url}users/create`, body);
   }
+
+  public uploadAva(formData:FormData):Observable<any>{
+   return this.httpClient.post(`${this.url}users/upload-avatar`,formData)
+  }
 }

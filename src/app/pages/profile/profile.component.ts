@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PostService } from 'src/app/service/post/post.service';
 import { getUserFormLC } from 'src/app/utils/auth.utils';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @Component({
   selector: 'app-profile',
@@ -30,6 +31,13 @@ export class ProfileComponent implements OnInit {
 
   createPost(){
     this.dialog.open(CreatePostComponent,{
+      width:"700px",
+      height:"700px"
+    })
+  }
+
+  EditProfile(){
+    this.dialog.open(EditProfileComponent,{
       width:"700px",
       height:"700px"
     })

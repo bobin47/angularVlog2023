@@ -23,6 +23,7 @@ export const getUserFormLC = () => {
   return profile ? JSON.parse(profile) : null;
 };
 
+
 export const clearLC = () => {
   localStorage.removeItem('access_token');
   localStorage.removeItem('user');
