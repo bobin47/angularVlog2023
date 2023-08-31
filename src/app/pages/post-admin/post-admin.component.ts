@@ -46,7 +46,6 @@ export class PostAdminComponent implements OnInit {
 
   getAllCategory() {
     this.categoryService.CategoryApi().subscribe(res => {
-      console.log(res.data);
       this.categoryList = res.data;
     });
   }
@@ -55,7 +54,6 @@ export class PostAdminComponent implements OnInit {
     this.postService
       .GetAllPost(limit, page, search, category)
       .subscribe(res => {
-        console.log(res.data);
         this.myDataArray = res.data;
         this.total = res.total;
       });
@@ -75,7 +73,6 @@ export class PostAdminComponent implements OnInit {
 
   onSubmit() {
     const searchValue = this.tablePostSearch.controls.search.value || undefined;
-    console.log(searchValue);
     this.getAllPost(this.limit, this.page, searchValue);
   }
 
@@ -98,8 +95,6 @@ export class PostAdminComponent implements OnInit {
   handlePageEvent(e: any) {}
 
   onSelectionChange(event: any) {
-    console.log(this.selectedOption)
-    console.log('Đã chọn:', event.value);
     this.getAllPost(this.limit, this.page, undefined, event.value);
   }
 }

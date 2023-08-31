@@ -17,7 +17,6 @@ export class DeleteCategoryDialogComponent {
 
   handleDelete() {
     const { id } = this.data.category;
-    console.log(this.data)
     this.categoryService.DeleteCategoryApi(id).subscribe(
       res=>{
         if(res.status === 200){

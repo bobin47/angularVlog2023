@@ -23,7 +23,6 @@ export class DetailpostComponent implements OnInit {
       const { id } = res;
       this.postService.detailPost(id).subscribe(
         res=>{
-          console.log(res)
           this.postDetail = res
         }
       );

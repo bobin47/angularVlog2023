@@ -56,7 +56,6 @@ export class CategoryAdminComponent implements OnInit {
   }
   
   delete(category: any) {
-    console.log(category)
     const dialogRef = this.dialog.open(DeleteCategoryDialogComponent, {
       width: '400px',
       height: '200px',

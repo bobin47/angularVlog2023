@@ -20,13 +20,11 @@ export class ProfileComponent implements OnInit {
 
   getAllPostUser() {
     this.postService.getPostWithIdUser(this.user.email).subscribe(res => {
-      console.log(res);
       this.postList = res
     });
   }
 
   naviagate(post:any){
-    console.log(post)
   }
 
   createPost(){

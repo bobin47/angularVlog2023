@@ -46,19 +46,16 @@ export class UserComponent implements OnInit, AfterViewInit {
   getUser(limit: number, page: number, search?: string) {
     this.userService.AllUserApi(limit, page, search).subscribe(
       res => {
-        console.log(res);
         const { data, total, currentPage, prevPage, nextPage } = res;
         this.dataSource = new MatTableDataSource(data);
         this.total = total;
       },
       err => {
-        console.log(err);
       }
     );
   }
 
   handlePageEvent(event: PageEvent) {
-    console.log(event.pageSize);
     this.limit = event.pageSize
     this.getUser(this.limit, event.pageIndex + 1);
   }

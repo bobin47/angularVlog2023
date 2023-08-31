@@ -39,7 +39,6 @@ export class DialogEditPostComponent implements OnInit {
 
   getCategory() {
     this.categoryService.CategoryApi().subscribe(res => {
-      console.log(res.data);
       this.categoryList = res.data;
     });
   }
@@ -79,9 +78,7 @@ export class DialogEditPostComponent implements OnInit {
       reader.onload = (e: any) => {
         this.selectedImage = e.target.result;
       };
-      console.log(this.selectedImage);
       reader.readAsDataURL(selectedFile);
-      // console.log('Bạn đã chọn tệp:', selectedFile);
       this.formData.append('thumbnail', selectedFile);
     }
   }

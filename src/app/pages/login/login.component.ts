@@ -43,15 +43,15 @@ export class LoginComponent {
     this.authService.LoginApi(body).subscribe(
       res => {
         const {access_token,refresh_token,user} = res?.res?.data
-        console.log(res.res.data)
         setAccessTokenFormLC(access_token)
         setRefresherTokenFormLC(refresh_token)
         setUserFormLC(user)
-        this._snackBar.open('dang nahp thanh cong', 'close');
-        this.router.navigate(['/home']);
+        this._snackBar.open('OK', 'close');
+        document.location.assign("home")
+        
       },
       err => {
-        this._snackBar.open('dang nhap that bai', 'close');
+        this._snackBar.open('Fail', 'close');
       }
     );
   }

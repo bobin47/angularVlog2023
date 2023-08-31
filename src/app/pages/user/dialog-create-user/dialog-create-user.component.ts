@@ -71,7 +71,6 @@ export class DialogCreateUserComponent {
     } = this.createUserForm.value;
     const body = { email, first_name, last_name, password, status };
     this.userService.createUser(body).subscribe(res => {
-      console.log(res)
       if (res.status === 200) {
         this._snackBar.open(res.message, 'close', {
           horizontalPosition: this.horizontalPosition,

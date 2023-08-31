@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { clearLC } from 'src/app/utils/auth.utils';
+import { clearLC, getUserFormLC } from 'src/app/utils/auth.utils';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,8 @@ import { clearLC } from 'src/app/utils/auth.utils';
 export class HeaderComponent {
   constructor(private router: Router){
   }
-
+  user = getUserFormLC()
+  
   @Output() buttonClick = new EventEmitter<void>();
   
   onMenuList(){
@@ -19,11 +20,17 @@ export class HeaderComponent {
 
   Logout(){
     clearLC()
-    this.router.navigate(['home'])
+    document.location.assign('home')
   }
 
   Profile(){
-    console.log("jojo")
     this.router.navigate(['profile'])
+  }
+  Login(){
+    this.router.navigate(['login'])
+  }
+
+  Register(){
+    this.router.navigate(['register'])
   }
 }

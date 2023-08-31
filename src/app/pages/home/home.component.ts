@@ -57,7 +57,6 @@ export class HomeComponent implements OnInit {
     this.postService
       .GetAllPost(limit, page, search, category)
       .subscribe(res => {
-        console.log(res.data);
         this.postList = res.data;
         this.total = res.total;
       });
@@ -65,13 +64,11 @@ export class HomeComponent implements OnInit {
 
   onChipClick(category: CategoryType) {
     this.category = category.id;
-    console.log(this.category);
     this.getAllPost(this.limit, this.page, undefined, category.id);
   }
 
   onSubmit() {
     const search = this.PostSearch.controls.search.value || undefined;
-    console.log(this.category);
     this.getAllPost(this.limit, this.page, search, this.category);
   }
 

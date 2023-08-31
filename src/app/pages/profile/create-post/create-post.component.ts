@@ -38,7 +38,6 @@ export class CreatePostComponent implements OnInit {
 
   getCategory() {
     this.categoryService.CategoryApi().subscribe(res => {
-      console.log(res.data);
       this.categoryList = res.data;
     });
   }
@@ -50,7 +49,6 @@ export class CreatePostComponent implements OnInit {
       reader.onload = (e: any) => {
         this.selectedImage = e.target.result;
       };
-      console.log(this.selectedImage);
       reader.readAsDataURL(selectedFile);
       this.formData.append('thumbnail', selectedFile);
     }
@@ -58,7 +56,6 @@ export class CreatePostComponent implements OnInit {
   onSave() {
     const content = this.editorContent;
     const user = getUserFormLC();
-    console.log(user.id);
     let postBody: { [key: string]: string | number } = {
       title: this.formCreatePost.controls.title.value as string,
       status: this.formCreatePost.controls.status.value as string,
@@ -74,11 +71,9 @@ export class CreatePostComponent implements OnInit {
     }
 
     this.formData.forEach((value, key) => {
-      console.log(key, value);
     });
 
     this.postService.uploadFormData(this.formData).subscribe(res => {
-      console.log(res);
       if (res) {
         this._snackBar.open(res.message, 'Close');
       }

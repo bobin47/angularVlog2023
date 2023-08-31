@@ -31,11 +31,9 @@ export class RegisterComponent {
 
     this.authService.RegisterApi(body).subscribe(
       (res)=>{
-        console.log(res)
         this._snackBar.open("dang ky thanh cong","close")
       },
       (err)=>{
-        console.log(err)
         this._snackBar.open("dang ky k thanh cong","close")
 
       }

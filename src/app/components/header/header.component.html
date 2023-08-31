@@ -9,18 +9,26 @@
   </button>
   <span>My App</span>
   <span class="example-spacer"></span>
-  <div [matMenuTriggerFor]="userMenu" class="menuList">
-    <div style="font-size: 15px;">Name</div>
+  <div
+    [matMenuTriggerFor]="userMenu"
+    class="menuList"
+    *ngIf="user; else dangnhap"
+  >
+    <div style="font-size: 15px; text-transform: uppercase;">{{ user.first_name }}</div>
     <img
       class="imageRound"
-      src="https://scontent.fsgn20-1.fna.fbcdn.net/v/t39.30808-6/320742915_2453462804807706_2877161571267981659_n.jpg?stp=dst-jpg_s1080x2048&_nc_cat=103&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=bjYBoyerVKoAX8dG5w3&_nc_ht=scontent.fsgn20-1.fna&oh=00_AfCmBOzq3qVyQGzGUuv1dHTl25yJTX9MimR54dtfQbhqdA&oe=64ECD6F1"
+      src="http://localhost:3000/{{ user.avatar }}"
       alt=""
     />
   </div>
+  <ng-template #dangnhap>
+    <button mat-raised-button color="accent" (click)="Login()" style="margin-right: 5px;">Login</button>
+    <button mat-raised-button color="accent" (click)="Register()">Register</button>
+  </ng-template>
   <div>
     <mat-menu #userMenu="matMenu">
       <button mat-menu-item (click)="Profile()">
-        <mat-icon >face</mat-icon>
+        <mat-icon>face</mat-icon>
         <span>Profile</span>
       </button>
       <button mat-menu-item (click)="Logout()">

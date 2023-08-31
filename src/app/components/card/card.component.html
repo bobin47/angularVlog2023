@@ -14,7 +14,7 @@
     <mat-card-title style="text-transform: capitalize;">{{
       aPost.user.first_name
     }}</mat-card-title>
-    <mat-card-subtitle>{{ aPost.created_at }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ aPost.created_at | date:'dd/MM/yyyy'}}</mat-card-subtitle>
   </mat-card-header>
   <img
     mat-card-image

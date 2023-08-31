@@ -50,7 +50,6 @@ export class EditPostDialogComponent {
 
   getCategory() {
     this.categoryService.CategoryApi().subscribe(res => {
-      console.log(res.data);
       this.categoryList = res.data;
     });
   }
@@ -62,9 +61,7 @@ export class EditPostDialogComponent {
       reader.onload = (e: any) => {
         this.selectedImage = e.target.result;
       };
-      console.log(this.selectedImage);
       reader.readAsDataURL(selectedFile);
-      // console.log('Bạn đã chọn tệp:', selectedFile);
       this.formData.append('thumbnail', selectedFile);
     }
   }
@@ -72,7 +69,6 @@ export class EditPostDialogComponent {
   onSave() {
     const content = this.editorContent;
     const { id } = this.data;
-    console.log('id', id);
     let postBody: { [key: string]: string | number } = {
       title: this.formEditPost.controls.title.value as string,
       status: this.formEditPost.controls.status.value as string,

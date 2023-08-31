@@ -15,7 +15,6 @@ export class EditProfileComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {}
   ngOnInit(): void {
-    console.log(this.user);
     this.setValueInform();
   }
   isChangeFileAvatar: boolean = false;
@@ -32,7 +31,6 @@ export class EditProfileComponent implements OnInit {
 
   setValueInform() {
     const { first_name, last_name, avatar } = this.user;
-    console.log('first_name,last_name', first_name, last_name);
     this.formCreatePost.controls.first_name.setValue(first_name);
     this.formCreatePost.controls.last_name.setValue(last_name);
     this.selectedImage = `http://localhost:3000/${avatar}`;
@@ -46,7 +44,6 @@ export class EditProfileComponent implements OnInit {
       reader.onload = (e: any) => {
         this.selectedImage = e.target.result;
       };
-      console.log(this.selectedImage);
       reader.readAsDataURL(selectedFile);
       this.formData.append('avatar', selectedFile);
     }
@@ -59,19 +56,20 @@ export class EditProfileComponent implements OnInit {
       last_name: this.formCreatePost.controls.last_name.value
     };
 
-    if (this.isChangeFileAvatar) {
-      this.userService.uploadAva(this.formData).subscribe(res => {
-      
-      console.log(res)
-      });
-    }
     this.userService.updateUser(id, body).subscribe(res => {
-      setUserFormLC(res.user);
+      if(!this.isChangeFileAvatar){
+        setUserFormLC(res.user);
+      }
       if (res) {
         this._snackBar.open(res.message, 'Close');
       }
     });
-    
+
+    if (this.isChangeFileAvatar) {
+      this.userService.uploadAva(this.formData).subscribe(res => {
+      setUserFormLC(res);
+      });
+    }
     this.isChangeFileAvatar = false;
   }
 }
