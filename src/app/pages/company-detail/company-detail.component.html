@@ -1,1 +1,13 @@
-<p>company-detail works!</p>
+<app-header></app-header>
+<div class="container">
+  <mat-grid-list cols="2" rowHeight="750px">
+    <mat-grid-tile >
+      <app-company-card style="width: 100%;"  [aCompany]="company"></app-company-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div style="width: 100%; padding: 10px;">
+        <app-job-card [listJob]="listJob"></app-job-card>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

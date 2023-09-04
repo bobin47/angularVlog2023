@@ -1,1 +1,31 @@
-<p>company-home works!</p>
+<app-header></app-header>
+<div class="container">
+  <div class="filter">
+    <form action="" class="search" [formGroup]="searchCompany"
+    (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="search-form-field">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" formControlName="search"/>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="paginate">
+    <mat-grid-list cols="3" rowHeight="230px" gutterSize="10px">
+      <div
+        *ngFor="
+          let item of listCompany
+            | paginate
+              : { itemsPerPage: limit, currentPage: page, totalItems: total }
+        "
+      >
+        <mat-grid-tile style="cursor: pointer;" (click)="naviagate(item)">
+          <app-company-card [aCompany]="item"></app-company-card>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+
+    <pagination-controls
+      (pageChange)="pageChanged($event)"
+    ></pagination-controls>
+  </div>
+</div>

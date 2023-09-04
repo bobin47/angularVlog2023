@@ -1,1 +1,54 @@
-<p>home-job works!</p>
+<app-header></app-header>
+<div class="container">
+  <div class="filter">
+    <form
+      action=""
+      class="search"
+      [formGroup]="searchCompany"
+      (ngSubmit)="onSubmit()"
+    >
+      <mat-form-field appearance="outline" class="search-form-field">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" formControlName="search" />
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="paginate">
+    <mat-grid-list cols="3" rowHeight="200px" gutterSize="10px">
+      <div
+        *ngFor="
+          let item of listJob
+            | paginate
+              : { itemsPerPage: limit, currentPage: page, totalItems: total }
+        "
+      >
+        <mat-grid-tile style="cursor: pointer;">
+          <mat-card
+            style="width: 100%; margin: 8px 0; border: 1px solid black;"
+          >
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>{{ item.name }}</mat-card-title>
+                <mat-card-subtitle>{{ item.skill }}</mat-card-subtitle>
+                <mat-card-subtitle>{{ item.description }}</mat-card-subtitle>
+                <mat-card-subtitle>{{ item.level }}</mat-card-subtitle>
+                <img
+                  mat-card-sm-image
+                  src="http://localhost:3000/{{ item.company.logo }}"
+                />
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-actions align="end">
+              <button mat-button (click)="naviagate(item)">View</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+
+    <pagination-controls
+      (pageChange)="pageChanged($event)"
+    ></pagination-controls>
+  </div>
+</div>

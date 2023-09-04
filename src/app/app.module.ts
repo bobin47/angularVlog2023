@@ -69,6 +69,8 @@ import { DeleteCompanyComponent } from './pages/company-admin/delete-company/del
 import { CreateJobComponent } from './pages/job-admin/create-job/create-job.component';
 import { EditJobComponent } from './pages/job-admin/edit-job/edit-job.component';
 import { DeleteJobComponent } from './pages/job-admin/delete-job/delete-job.component';
+import { CompanyCardComponent } from './components/company-card/company-card.component';
+import { JobCardComponent } from './components/job-card/job-card.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +115,8 @@ import { DeleteJobComponent } from './pages/job-admin/delete-job/delete-job.comp
     CreateJobComponent,
     EditJobComponent,
     DeleteJobComponent,
+    CompanyCardComponent,
+    JobCardComponent,
   ],
   imports: [
     BrowserModule,

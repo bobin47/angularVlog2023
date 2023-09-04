@@ -1,0 +1,15 @@
+<mat-card
+  *ngFor="let job of listJob"
+  style="width: 100%; margin: 8px 0; border: 1px solid black;"
+>
+  <mat-card-header>
+    <mat-card-title>{{ job.name }}</mat-card-title>
+    <mat-card-subtitle>{{ job.skill }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ job.description }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ job.level }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
