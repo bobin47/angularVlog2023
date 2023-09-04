@@ -14,6 +14,12 @@ import { CategoryAdminComponent } from './pages/category-admin/category-admin.co
 import { CreatePostDialogComponent } from './pages/post-admin/create-post-dialog/create-post-dialog.component';
 import { DetailpostComponent } from './pages/detailpost/detailpost.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { HomeJobComponent } from './pages/home-job/home-job.component';
+import { CompanyHomeComponent } from './pages/company-home/company-home.component';
+import { JobDetailComponent } from './pages/job-detail/job-detail.component';
+import { CompanyDetailComponent } from './pages/company-detail/company-detail.component';
+import { CompanyAdminComponent } from './pages/company-admin/company-admin.component';
+import { JobAdminComponent } from './pages/job-admin/job-admin.component';
 
 const routes: Routes = [
   {
@@ -38,6 +44,22 @@ const routes: Routes = [
     component: RegisterComponent,
     canActivate:[AuthGuard]
   },
+    {
+    path: 'job',
+    component: HomeJobComponent,
+  },
+  {
+    path: 'company',
+    component: CompanyHomeComponent,
+  },
+  {
+    path: 'job/:id',
+    component: JobDetailComponent,
+  },
+  {
+    path: 'company/:id',
+    component: CompanyDetailComponent,
+  },
   {
     path: 'admin',
     component: AdminComponent,
@@ -58,6 +80,14 @@ const routes: Routes = [
       {
         path: 'category',
         component: CategoryAdminComponent
+      },
+       {
+        path: 'company',
+        component: CompanyAdminComponent
+      },
+      {
+        path: 'job',
+        component: JobAdminComponent
       }
     ]
   },

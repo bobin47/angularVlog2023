@@ -1,0 +1,79 @@
+<div class="container">
+  <h1 class="title">Company</h1>
+  <div class="filter">
+    <form action=""  [formGroup]="tableCompanySearch" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="search-form-field">
+        <mat-label>Search</mat-label>
+        <input matInput type="text"  formControlName="search"/>
+      </mat-form-field>
+    </form>
+    <div class="action">
+      <button  mat-raised-button color="primary" (click)="Refresh()">Refresh</button>
+      <button class="btnCreate" mat-raised-button color="primary" (click)="create()">Create</button>
+    </div>
+  </div>
+  <table mat-table [dataSource]="listCompany" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let company">{{ company.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let company">{{ company.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>address</th>
+      <td mat-cell *matCellDef="let company">{{ company.address }}</td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>description</th>
+      <td mat-cell *matCellDef="let company">{{ company.description }}</td>
+    </ng-container>
+    <ng-container matColumnDef="logo">
+      <th mat-header-cell *matHeaderCellDef>logo</th>
+      <td mat-cell *matCellDef="let company">
+        <img
+          style="width: 100px; height: 50px;"
+          src="http://localhost:3000/{{ company.logo }}"
+          alt=""
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Cài đặt</th>
+      <td mat-cell *matCellDef="let company">
+        <div class="flex">
+          <button
+            class="mr-3"
+            (click)="edit(company)"
+            mat-button
+            color="primary"
+          >
+            <mat-icon>
+              <span class="material-symbols-outlined"> edit </span>
+            </mat-icon>
+          </button>
+          <button (click)="delete(company)" mat-button color="warn">
+            <mat-icon>
+              <span class="material-symbols-outlined"> delete </span>
+            </mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+  <mat-paginator
+    class="mat-elevation-z8"
+    [pageSizeOptions]="[10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+    (page)="handlePageEvent($event)"
+    [length]="total"
+  >
+  </mat-paginator>
+</div>
+
+

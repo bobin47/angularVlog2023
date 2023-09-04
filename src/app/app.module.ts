@@ -54,6 +54,21 @@ import { DialogDeletepostPostComponent } from './components/card/dialog-deletepo
 import { CreatePostComponent } from './pages/profile/create-post/create-post.component';
 import { EditProfileComponent } from './pages/profile/edit-profile/edit-profile.component';
 import { DeleteProfileComponent } from './pages/profile/delete-profile/delete-profile.component';
+import { HomeJobComponent } from './pages/home-job/home-job.component';
+import { CompanyHomeComponent } from './pages/company-home/company-home.component';
+import { JobDetailComponent } from './pages/job-detail/job-detail.component';
+import { CompanyDetailComponent } from './pages/company-detail/company-detail.component';
+import { CompanyAdminComponent } from './pages/company-admin/company-admin.component';
+import { JobAdminComponent } from './pages/job-admin/job-admin.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CreateCompanyComponent } from './pages/company-admin/create-company/create-company.component';
+import { EditCompanyComponent } from './pages/company-admin/edit-company/edit-company.component';
+import { DeleteCompanyComponent } from './pages/company-admin/delete-company/delete-company.component';
+import { CreateJobComponent } from './pages/job-admin/create-job/create-job.component';
+import { EditJobComponent } from './pages/job-admin/edit-job/edit-job.component';
+import { DeleteJobComponent } from './pages/job-admin/delete-job/delete-job.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +100,19 @@ import { DeleteProfileComponent } from './pages/profile/delete-profile/delete-pr
     DialogDeletepostPostComponent,
     CreatePostComponent,
     EditProfileComponent,
-    DeleteProfileComponent
+    DeleteProfileComponent,
+    HomeJobComponent,
+    CompanyHomeComponent,
+    JobDetailComponent,
+    CompanyDetailComponent,
+    CompanyAdminComponent,
+    JobAdminComponent,
+    CreateCompanyComponent,
+    EditCompanyComponent,
+    DeleteCompanyComponent,
+    CreateJobComponent,
+    EditJobComponent,
+    DeleteJobComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +138,10 @@ import { DeleteProfileComponent } from './pages/profile/delete-profile/delete-pr
     CKEditorModule,
     MatChipsModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxPaginationModule
   ],
   providers: [
     {

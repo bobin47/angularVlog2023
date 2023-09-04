@@ -1,0 +1,98 @@
+<div class="container">
+  <h1 class="title">Job</h1>
+  <div class="filter">
+    <form action=""  [formGroup]="tableCompanySearch" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="search-form-field">
+        <mat-label>Search</mat-label>
+        <input matInput type="text"  formControlName="search"/>
+      </mat-form-field>
+    </form>
+    <div class="action">
+      <button  mat-raised-button color="primary" (click)="Refresh()">Refresh</button>
+      <button class="btnCreate" mat-raised-button color="primary" (click)="create()">Create</button>
+    </div>
+  </div>
+  <!-- columnsToDisplay = ['id', 'name', 'level', 'salary', 'description']; -->
+
+  <table mat-table [dataSource]="listJob" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>id</th>
+      <td mat-cell *matCellDef="let category">{{ category.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let category">{{ category.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>description</th>
+      <td mat-cell *matCellDef="let category">{{ category.description }}</td>
+    </ng-container>
+    <ng-container matColumnDef="salary">
+      <th mat-header-cell *matHeaderCellDef>salary</th>
+      <td mat-cell *matCellDef="let category">{{ category.salary }}</td>
+    </ng-container>
+    <ng-container matColumnDef="level">
+      <th mat-header-cell *matHeaderCellDef>level</th>
+      <td mat-cell *matCellDef="let category">{{ category.level }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="skill">
+      <th mat-header-cell *matHeaderCellDef>skill</th>
+      <td mat-cell *matCellDef="let category">{{ category.skill }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>quantity</th>
+      <td mat-cell *matCellDef="let category">{{ category.quantity }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="company">
+      <th mat-header-cell *matHeaderCellDef>company</th>
+      <td mat-cell *matCellDef="let category">{{ category.company.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef>startDate</th>
+      <td mat-cell *matCellDef="let category">{{ category.startDate | date:'dd/MM/yyyy' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef>endDate</th>
+      <td mat-cell *matCellDef="let category">{{ category.endDate | date:'dd/MM/yyyy' }}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Cài đặt</th>
+      <td mat-cell *matCellDef="let category">
+        <div class="flex">
+          <button
+            class="mr-3"
+            (click)="edit(category)"
+            mat-button
+            color="primary"
+          >
+            <mat-icon>
+              <span class="material-symbols-outlined"> edit </span>
+            </mat-icon>
+          </button>
+          <button (click)="delete(category)" mat-button color="warn">
+            <mat-icon>
+              <span class="material-symbols-outlined"> delete </span>
+            </mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+  </table>
+  <mat-paginator
+    class="mat-elevation-z8"
+    [pageSizeOptions]="[10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+    (page)="handlePageEvent($event)"
+    [length]="total"
+  >
+  </mat-paginator>
+</div>
+

@@ -23,3 +23,13 @@ export type PostDetail = {
     avatar: null;
   };
 };
+
+export type CompanyType = {
+  address: string;
+  created_at: string;
+  description: string;
+  id: number;
+  logo: string;
+  name: string;
+  updated_at: string;
+};

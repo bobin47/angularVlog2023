@@ -1,0 +1,38 @@
+<div class="container">
+  <form class="formLogin" [formGroup]="createCompanyForm" (ngSubmit)="onSubmit()">
+    <p class="title">Create User</p>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>description</mat-label>
+        <input matInput placeholder="description" formControlName="description" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>address</mat-label>
+        <input matInput placeholder="address" formControlName="address" />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <input type="file" (change)="onFileSelected($event)">
+      <img [src]="selectedImage" alt="">
+    </div>
+    <div>
+      <button
+        aria-label="Show an example snack-bar"
+        mat-raised-button
+        color="primary"
+      >
+        Create
+      </button>
+    </div>
+  </form>
+</div>
+

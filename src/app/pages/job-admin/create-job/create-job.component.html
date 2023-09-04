@@ -1,0 +1,73 @@
+<div class="container">
+  <h1>Create Job</h1>
+  <div>
+    <form action="" [formGroup]="formCreateJob" (submit)="OnSave()">
+      <mat-form-field appearance="outline">
+        <mat-label>name</mat-label>
+        <input matInput placeholder="name" formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>description</mat-label>
+        <input
+          matInput
+          placeholder="description"
+          formControlName="description"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>skill</mat-label>
+        <input matInput placeholder="skill" formControlName="skill" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>salary</mat-label>
+        <input matInput placeholder="salary" formControlName="salary" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>level</mat-label>
+        <input matInput placeholder="level" formControlName="level" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>quantity</mat-label>
+        <input matInput placeholder="quantity" formControlName="quantity" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Select Category</mat-label>
+        <mat-select [(ngModel)]="selectedOption" formControlName="company">
+          <mat-option *ngFor="let item of listCompany" [value]="item.id">{{
+            item.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input
+          [formGroup]="formCreateJob.controls.range"
+          [rangePicker]="picker"
+        >
+          <input
+            matStartDate
+            formControlName="start"
+            placeholder="Start date"
+          />
+          <input matEndDate formControlName="end" placeholder="End date" />
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <button aria-label="Show an example snack-bar" mat-raised-button>
+        Create
+      </button>
+    </form>
+  </div>
+</div>
