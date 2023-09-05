@@ -92,7 +92,10 @@ export class PostAdminComponent implements OnInit {
     });
   }
 
-  handlePageEvent(e: any) {}
+  handlePageEvent(event: any) {
+    this.limit = event.pageSize;
+    this.getAllPost(this.limit, event.pageIndex + 1);
+  }
 
   onSelectionChange(event: any) {
     this.getAllPost(this.limit, this.page, undefined, event.value);

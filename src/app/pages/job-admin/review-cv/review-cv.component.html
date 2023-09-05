@@ -1,0 +1,8 @@
+<div class="container">
+ <div *ngIf="IsHaveCv">
+  No CV
+ </div>
+  <div  *ngFor="let item of data">
+     <a href="http://localhost:3000/{{item.linkCv}}">{{item.linkCv}}</a>
+  </div>
+</div>

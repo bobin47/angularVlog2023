@@ -24,7 +24,7 @@
       </mat-chip-listbox>
     </div>
   </div>
-  <div>
+  <!-- <div>
     <mat-grid-list cols="3" rowHeight="1:1">
       <mat-grid-tile
         *ngFor="let post of postList"
@@ -33,5 +33,25 @@
         ><app-card [aPost]="post"></app-card
       ></mat-grid-tile>
     </mat-grid-list>
+  </div> -->
+
+  <div class="paginate">
+    <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10px">
+      <div
+        *ngFor="
+          let item of postList
+            | paginate
+              : { itemsPerPage: limit, currentPage: page, totalItems: total }
+        "
+      >
+        <mat-grid-tile style="cursor: pointer;" (click)="naviagate(item)">
+          <app-card [aPost]="item"></app-card>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+
+    <pagination-controls
+      (pageChange)="pageChanged($event)"
+    ></pagination-controls>
   </div>
 </div>

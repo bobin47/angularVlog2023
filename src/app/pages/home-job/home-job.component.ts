@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { JobService } from 'src/app/service/job/job.service';
+import { ApplyVcComponent } from './apply-vc/apply-vc.component';
 
 @Component({
   selector: 'app-home-job',
@@ -9,7 +11,11 @@ import { JobService } from 'src/app/service/job/job.service';
   styleUrls: ['./home-job.component.scss']
 })
 export class HomeJobComponent {
-  constructor(private jobService: JobService, private router: Router) {}
+  constructor(
+    private jobService: JobService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getAllListJob(this.limit, this.page);
@@ -43,5 +49,14 @@ export class HomeJobComponent {
 
   pageChanged(event: any) {
     this.page = event;
+    this.getAllListJob(this.limit, event);
+  }
+
+  Apply(item: any) {
+    this.dialog.open(ApplyVcComponent, {
+      width: '400px',
+      height: '200px',
+      data: item
+    });
   }
 }

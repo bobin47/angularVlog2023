@@ -71,6 +71,8 @@ import { EditJobComponent } from './pages/job-admin/edit-job/edit-job.component'
 import { DeleteJobComponent } from './pages/job-admin/delete-job/delete-job.component';
 import { CompanyCardComponent } from './components/company-card/company-card.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
+import { ApplyVcComponent } from './pages/home-job/apply-vc/apply-vc.component';
+import { ReviewCvComponent } from './pages/job-admin/review-cv/review-cv.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +119,8 @@ import { JobCardComponent } from './components/job-card/job-card.component';
     DeleteJobComponent,
     CompanyCardComponent,
     JobCardComponent,
+    ApplyVcComponent,
+    ReviewCvComponent,
   ],
   imports: [
     BrowserModule,

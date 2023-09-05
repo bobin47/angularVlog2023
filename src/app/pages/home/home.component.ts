@@ -72,6 +72,11 @@ export class HomeComponent implements OnInit {
     this.getAllPost(this.limit, this.page, search, this.category);
   }
 
+  pageChanged(event:any){
+    this.page = event;
+    this.getAllPost(this.limit, event);
+  }
+
   naviagate(post: any) {
     const { id } = post;
     this.router.navigate([`/detail/${id}`]);

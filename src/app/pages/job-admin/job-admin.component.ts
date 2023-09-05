@@ -5,6 +5,7 @@ import { DeleteJobComponent } from './delete-job/delete-job.component';
 import { JobService } from 'src/app/service/job/job.service';
 import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ReviewCvComponent } from './review-cv/review-cv.component';
 
 @Component({
   selector: 'app-job-admin',
@@ -39,12 +40,16 @@ export class JobAdminComponent {
   total = 0;
   limit = 10;
   page = 1;
+  listResume = []
 
   getAllJob(limit: number, page: number, search?: string) {
     this.jobService.FindAllJobApi(limit, page, search).subscribe(res => {
       this.listJob = res.data;
       const { total } = res;
       this.total = total;
+      this.listResume = res.data.resume
+      console.log(res.data)
+      console.log("this.listResume",this.listResume)
     });
   }
 
@@ -75,7 +80,19 @@ export class JobAdminComponent {
     });
   }
 
-  handlePageEvent($event: any) {}
+  reviewCv(cv:any){
+    console.log("cv",cv.resume)
+    this.dialog.open(ReviewCvComponent, {
+      width: '400px',
+      height: '200px',
+      data: cv.resume
+    });
+  }
+
+  handlePageEvent(event: any) {
+    this.limit = event.pageSize;
+    this.getAllJob(this.limit, event.pageIndex + 1);
+  }
 
   onSubmit() {
     const searchValue =
