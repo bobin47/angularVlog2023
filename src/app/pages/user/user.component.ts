@@ -14,7 +14,7 @@ import { DialogCreateUserComponent } from './dialog-create-user/dialog-create-us
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
-export class UserComponent implements OnInit, AfterViewInit {
+export class UserComponent implements OnInit {
   constructor(private userService: UserService, public dialog: MatDialog) {}
   tableUserSearch = new FormGroup({
     search: new FormControl('')
@@ -41,8 +41,6 @@ export class UserComponent implements OnInit, AfterViewInit {
     this.getUser(this.limit, this.page);
   }
 
-  ngAfterViewInit() {}
-
   getUser(limit: number, page: number, search?: string) {
     this.userService.AllUserApi(limit, page, search).subscribe(
       res => {
@@ -50,13 +48,12 @@ export class UserComponent implements OnInit, AfterViewInit {
         this.dataSource = new MatTableDataSource(data);
         this.total = total;
       },
-      err => {
-      }
+      err => {}
     );
   }
 
   handlePageEvent(event: PageEvent) {
-    this.limit = event.pageSize
+    this.limit = event.pageSize;
     this.getUser(this.limit, event.pageIndex + 1);
   }
 
@@ -76,7 +73,7 @@ export class UserComponent implements OnInit, AfterViewInit {
     });
   }
 
-  edit(element: any) {
+  edit(element: User) {
     const dialogRef = this.dialog.open(DialogEditUserComponent, {
       width: '550px',
       height: '500px',
@@ -84,7 +81,7 @@ export class UserComponent implements OnInit, AfterViewInit {
     });
   }
 
-  delete(element: any) {
+  delete(element: User) {
     const dialogRef = this.dialog.open(DialogDeleteUserComponent, {
       width: '400px',
       height: '200px',

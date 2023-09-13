@@ -6,9 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  
-  onButtonClick(drawer:any) {
-   drawer.toggle()
+  typesOfShoes: string[] = [
+    'Boots',
+    'Clogs',
+    'Loafers',
+    'Moccasins',
+    'Sneakers'
+  ];
+
+  onButtonClick(drawer: any) {
+    drawer.toggle();
   }
 }

@@ -1,6 +1,6 @@
 export class PagingRequestModel {
-  limit:number;
-  page:number;
+  limit: number;
+  page: number;
 }
 
-export class UserRequestModel extends PagingRequestModel{}
+export class UserRequestModel extends PagingRequestModel {}

@@ -17,9 +17,20 @@ export class CreateJobComponent {
     private _snackBar: MatSnackBar
   ) {}
   ngOnInit(): void {
+    console.log("create Job")
     this.getAllCompany()
   
   }
+
+  getAllCompany(){
+    this.companyService.AllCompanyApiNoP().subscribe(
+      res=>{
+        console.log(res)
+        this.listCompany = res.company
+      }
+    )
+  }
+
   selectedOption: any;
   listCompany:CompanyType[] = []
   formCreateJob = new FormGroup({
@@ -36,14 +47,7 @@ export class CreateJobComponent {
     company:new FormControl()
   });
 
-  getAllCompany(){
-    this.companyService.FindAllCompanyApi(10,1).subscribe(
-      res=>{
-        console.log(res.data)
-        this.listCompany = res.data
-      }
-    )
-  }
+
   
 
   OnSave(){

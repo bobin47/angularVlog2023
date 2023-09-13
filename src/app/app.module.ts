@@ -73,6 +73,7 @@ import { CompanyCardComponent } from './components/company-card/company-card.com
 import { JobCardComponent } from './components/job-card/job-card.component';
 import { ApplyVcComponent } from './pages/home-job/apply-vc/apply-vc.component';
 import { ReviewCvComponent } from './pages/job-admin/review-cv/review-cv.component';
+import { DialogVcComponent } from './components/job-card/dialog-vc/dialog-vc.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +122,7 @@ import { ReviewCvComponent } from './pages/job-admin/review-cv/review-cv.compone
     JobCardComponent,
     ApplyVcComponent,
     ReviewCvComponent,
+    DialogVcComponent,
   ],
   imports: [
     BrowserModule,

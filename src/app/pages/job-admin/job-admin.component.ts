@@ -40,16 +40,16 @@ export class JobAdminComponent {
   total = 0;
   limit = 10;
   page = 1;
-  listResume = []
+  listResume = [];
 
   getAllJob(limit: number, page: number, search?: string) {
     this.jobService.FindAllJobApi(limit, page, search).subscribe(res => {
       this.listJob = res.data;
       const { total } = res;
       this.total = total;
-      this.listResume = res.data.resume
-      console.log(res.data)
-      console.log("this.listResume",this.listResume)
+      this.listResume = res.data.resume;
+      console.log(res.data);
+      console.log('this.listResume', this.listResume);
     });
   }
 
@@ -59,7 +59,7 @@ export class JobAdminComponent {
 
   create() {
     this.dialog.open(CreateJobComponent, {
-      width: '400px',
+      width: '800px',
       height: '400px'
     });
   }
@@ -80,8 +80,8 @@ export class JobAdminComponent {
     });
   }
 
-  reviewCv(cv:any){
-    console.log("cv",cv.resume)
+  reviewCv(cv: any) {
+    console.log('cv', cv.resume);
     this.dialog.open(ReviewCvComponent, {
       width: '400px',
       height: '200px',

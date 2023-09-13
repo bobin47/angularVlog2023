@@ -1,13 +1,21 @@
 <app-header></app-header>
 <div class="container">
-  <mat-grid-list cols="2" rowHeight="750px">
-    <mat-grid-tile >
-      <app-company-card style="width: 100%;"  [aCompany]="company"></app-company-card>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div style="width: 100%; padding: 10px;">
-        <app-job-card [listJob]="listJob"></app-job-card>
+  <div class="background">
+    <div class="company">
+      <img
+        class="header__img"
+        mat-card-sm-image
+        src="http://localhost:3000/{{ company.logo }}"
+      />
+      <div class="header__card__name">
+        <p>{{ company.name }}</p>
+        <div style="font-size: 20px;">
+          {{ company.description }}
+        </div>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+    </div>
+  </div>
+  <div style="width: 50%">
+    <app-job-card [listJob]="listJob"></app-job-card>
+  </div>
 </div>

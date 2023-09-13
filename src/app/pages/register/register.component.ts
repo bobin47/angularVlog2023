@@ -9,35 +9,47 @@ import { AuthService } from 'src/app/service/auth/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  constructor(
+    private authService: AuthService,
+    private _snackBar: MatSnackBar
+  ) {}
 
-  constructor(private authService:AuthService,private _snackBar: MatSnackBar,){}
-
-  registerForm = new FormGroup(
-    {
-      email: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required,Validators.minLength(6)]),
-      first_name: new FormControl('', [Validators.required]),
-      last_name: new FormControl(''),
-      status: new FormControl(''),
-    }
-  )
+  registerForm = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
+    ]),
+    first_name: new FormControl('', [Validators.required]),
+    last_name: new FormControl(''),
+    status: new FormControl('')
+  });
 
   onSubmit() {
-    const { email, password,first_name,last_name,status } = this.registerForm.value;
+    const {
+      email,
+      password,
+      first_name,
+      last_name,
+      status
+    } = this.registerForm.value;
 
     const body = {
-      email, password,first_name,last_name,status
+      email,
+      password,
+      first_name,
+      last_name,
+      status
     };
 
     this.authService.RegisterApi(body).subscribe(
-      (res)=>{
-        this._snackBar.open("dang ky thanh cong","close")
+      res => {
+        this._snackBar.open('dang ky thanh cong', 'close');
       },
-      (err)=>{
-        this._snackBar.open("dang ky k thanh cong","close")
-
+      err => {
+        this._snackBar.open('dang ky k thanh cong', 'close');
       }
-    )
+    );
   }
 
   getErrorMessage(field: string): string | undefined {
@@ -63,7 +75,6 @@ export class RegisterComponent {
       if (this.registerForm.controls.first_name.hasError('required')) {
         return 'You must enter a value';
       }
-     
     }
 
     return undefined;

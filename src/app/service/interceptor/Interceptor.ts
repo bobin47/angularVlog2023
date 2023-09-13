@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor,
+  HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { getAccessTokenFormLC } from 'src/app/utils/auth.utils';
@@ -11,7 +11,7 @@ import { getAccessTokenFormLC } from 'src/app/utils/auth.utils';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
-  access_token = getAccessTokenFormLC()
+  access_token = getAccessTokenFormLC();
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
@@ -22,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
         headers: request.headers.append(
           'Authorization',
           `Bearer ${this.access_token}`
-        ),
+        )
       });
     }
     return next.handle(requestClone);

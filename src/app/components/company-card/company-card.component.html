@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<!-- <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title-group>
       <mat-card-title>{{ aCompany.name }}</mat-card-title>
@@ -12,4 +12,26 @@
     <p>{{ aCompany.description }}</p>
     <p>{{ aCompany.address }}</p>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
+
+<div class="card">
+  <div class="header__card">
+    <img
+      class="header__img"
+      mat-card-sm-image
+      src="http://localhost:3000/{{ aCompany.logo }}"
+    />
+    <div class="header__card__name">
+      <mat-card-title>{{ aCompany.name }}</mat-card-title>
+    </div>
+  </div>
+  <div class="body__card">
+    <div class="body__card__des">
+      <p>{{ aCompany.description }}</p>
+    </div>
+    <div class="body__card__add">
+      <p>{{ aCompany.address }}</p>
+    </div>
+  </div>
+  <div></div>
+</div>

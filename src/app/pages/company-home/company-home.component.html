@@ -1,16 +1,20 @@
 <app-header></app-header>
 <div class="container">
   <div class="filter">
-    <form action="" class="search" [formGroup]="searchCompany"
-    (ngSubmit)="onSubmit()">
+    <form
+      action=""
+      class="search"
+      [formGroup]="searchCompany"
+      (ngSubmit)="onSubmit()"
+    >
       <mat-form-field appearance="outline" class="search-form-field">
         <mat-label>Search</mat-label>
-        <input matInput type="text" formControlName="search"/>
+        <input matInput type="text" formControlName="search" />
       </mat-form-field>
     </form>
   </div>
   <div class="paginate">
-    <mat-grid-list cols="3" rowHeight="230px" gutterSize="10px">
+    <mat-grid-list cols="3" rowHeight="290px" gutterSize="10px">
       <div
         *ngFor="
           let item of listCompany

@@ -40,7 +40,9 @@
             </mat-card-header>
             <mat-card-actions align="end">
               <button mat-button (click)="naviagate(item)">View</button>
-              <button mat-button (click)="Apply(item)" >Apply</button>
+              <button mat-raised-button color="warn" (click)="Apply(item)">
+                Apply
+              </button>
             </mat-card-actions>
           </mat-card>
         </mat-grid-tile>

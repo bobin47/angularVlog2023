@@ -40,6 +40,7 @@ export class DialogEditUserComponent {
   }
 
   ngOnInit() {
+    console.log(this.data);
     const { first_name, status, last_name, id } = this.data.element;
     this.upDateUserForm.controls.first_name.setValue(first_name);
     this.upDateUserForm.controls.status.setValue(status);
@@ -51,13 +52,13 @@ export class DialogEditUserComponent {
     const { id, first_name, last_name, status } = this.upDateUserForm.value;
     const body = { first_name, last_name, status };
     this.userService.updateUser(id, body).subscribe(res => {
-      if (res.status === 200){
+      if (res.status === 200) {
         this._snackBar.open(res.message, 'close', {
           horizontalPosition: this.horizontalPosition,
           verticalPosition: this.verticalPosition
         });
-      }else{
-        this._snackBar.open("loi roi","close")
+      } else {
+        this._snackBar.open('loi roi', 'close');
       }
     });
   }

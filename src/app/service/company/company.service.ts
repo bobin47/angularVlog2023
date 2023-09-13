@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CompanyService {
-
   constructor(private httpClient: HttpClient) {}
 
   createCompanyApi(body: any): Observable<any> {
@@ -14,6 +13,9 @@ export class CompanyService {
   }
   updateCompanyApi(id: number, body: any): Observable<any> {
     return this.httpClient.put(`http://localhost:3000/company/${id}`, body);
+  }
+  AllCompanyApiNoP(): Observable<any> {
+    return this.httpClient.get('http://localhost:3000/company/not-pagination');
   }
   FindAllCompanyApi(
     limit: number,

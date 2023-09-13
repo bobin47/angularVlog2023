@@ -9,7 +9,19 @@
     <mat-card-subtitle>{{ job.level }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions align="end">
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button mat-button mat-raised-button color="accent">LIKE</button>
+    <button
+      mat-button
+      mat-raised-button
+      color="warn"
+      style="margin-left: 5px;"
+      (click)="OpenDialog(job)"
+    >
+      Apply
+    </button>
   </mat-card-actions>
 </mat-card>
+
+<div *ngIf="listJob.length === 0" class="noJob">
+  Sorry Company no Job
+</div>

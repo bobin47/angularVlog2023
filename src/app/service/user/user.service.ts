@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ResponseAction, User } from 'src/app/types/user.type';
+import { ResponseData } from 'src/app/types/responseData.type';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,29 +14,34 @@ export class UserService {
     limit: number,
     page: number,
     search?: string
-  ): Observable<any> {
+  ): Observable<ResponseData<User[]>> {
     let params = new HttpParams()
       .set('limit', limit.toString())
       .set('page', page.toString());
     if (search !== null && search !== undefined) {
       params = params.set('search', search);
     }
-    return this.httpClient.get(`${this.url}users`, { params });
+    return this.httpClient.get<ResponseData<User[]>>(`${this.url}users`, {
+      params
+    });
   }
 
-  public updateUser(id: number, body: any): Observable<any> {
-    return this.httpClient.put(`${this.url}users/${id}`, body);
+  public updateUser(id: number, body: any): Observable<ResponseAction> {
+    return this.httpClient.put<ResponseAction>(`${this.url}users/${id}`, body);
   }
 
-  public deleteUser(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.url}users/${id}`);
+  public deleteUser(id: number): Observable<ResponseAction> {
+    return this.httpClient.delete<ResponseAction>(`${this.url}users/${id}`);
   }
 
-  public createUser(body: any): Observable<any> {
-    return this.httpClient.post(`${this.url}users/create`, body);
+  public createUser(body: any): Observable<ResponseAction> {
+    return this.httpClient.post<ResponseAction>(
+      `${this.url}users/create`,
+      body
+    );
   }
 
-  public uploadAva(formData:FormData):Observable<any>{
-   return this.httpClient.post(`${this.url}users/upload-avatar`,formData)
+  public uploadAva(formData: FormData): Observable<any> {
+    return this.httpClient.post(`${this.url}users/upload-avatar`, formData);
   }
 }

@@ -1,6 +1,32 @@
-.container{
+.container {
   width: 80%;
   margin: 0 auto;
-  
-  
+
+  .background {
+    width: 90%;
+    height: 200px;
+    background-image: linear-gradient(
+      to right,
+      black,
+      rgba(235, 82, 82, 0.988)
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    .company {
+      color: white;
+      display: flex;
+      .header__img {
+        width: 150px;
+        height: 150px;
+      }
+      .header__card__name {
+        font-size: 40px;
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+    }
+  }
 }

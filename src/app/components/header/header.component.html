@@ -7,14 +7,16 @@
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
+  <span>App</span>
   <span class="example-spacer"></span>
   <div
     [matMenuTriggerFor]="userMenu"
     class="menuList"
     *ngIf="user; else dangnhap"
   >
-    <div style="font-size: 15px; text-transform: uppercase;">{{ user.first_name }}</div>
+    <div style="font-size: 15px; text-transform: uppercase;">
+      {{ user.first_name }}
+    </div>
     <img
       class="imageRound"
       src="http://localhost:3000/{{ user.avatar }}"
@@ -22,8 +24,17 @@
     />
   </div>
   <ng-template #dangnhap>
-    <button mat-raised-button color="accent" (click)="Login()" style="margin-right: 5px;">Login</button>
-    <button mat-raised-button color="accent" (click)="Register()">Register</button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="Login()"
+      style="margin-right: 5px;"
+    >
+      Login
+    </button>
+    <button mat-raised-button color="accent" (click)="Register()">
+      Register
+    </button>
   </ng-template>
   <div>
     <mat-menu #userMenu="matMenu">
